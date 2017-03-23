@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const session = require('express-session');
+const flash = require('connect-flash');
 
 const routes = require('./routes/index');
 const users = require('./routes/users');
@@ -28,6 +29,8 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(flash());
 
 app.use('/', routes);
 app.use('/', users);

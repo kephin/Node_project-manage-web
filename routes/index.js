@@ -5,6 +5,9 @@ const User = require('../models/user');
 
 router.use((req, res, next) => {
   res.locals.currentUser = req.user || null;
+  res.locals.successes = req.flash('success');
+  res.locals.errors = req.flash('error');
+  res.locals.infos = req.flash('info');
   next();
 });
 
