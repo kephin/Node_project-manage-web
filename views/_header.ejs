@@ -14,5 +14,19 @@
       <div class="navbar-header">
         <a class="navbar-brand" href="/">Moxa DQA Project Management</a>
       </div>
+      <% if (currentUser) { %>
+        <ul class="nav navbar-nav navbar-left">
+          <li><a href="/newProject">Create Project</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/edit">Hello, <%= currentUser.name %></a></li>
+          <li><a href="/logout">Log out</a></li>
+        </ul>
+        <% } else { %>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/login">Log in</a></li>
+            <li><a href="/signup">Sign up</a></li>
+          </ul>
+        <% } %>
     </div>
   </div>
