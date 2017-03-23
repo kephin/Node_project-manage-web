@@ -25,9 +25,27 @@ router.post('/signup', (req, res, next) => {
       res.redirect('/signup');
     }
     const newUser = new User({ name, email, password });
-    newUser.save();
-    res.redirect('/');
+    newUser.save(next);
   });
+  //log in if sign up successfully
+}, passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/signup',
+}));
+
+// Log in / log out
+router.get('/login', (req, res) => {
+  res.render('login');
+});
+
+router.post('/login', passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/login',
+}));
+
+router.get('/logout', (req, res) => {
+  req.logout();
+  res.redirect('/');
 });
 
 module.exports = router;
