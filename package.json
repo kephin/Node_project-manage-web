@@ -1,0 +1,25 @@
+{
+  "name": "project_managemet_website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon"
+  },
+  "keywords": [],
+  "author": "kephin",
+  "license": "ISC",
+  "devDependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.17.1",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "express-session": "^1.15.1",
+    "mongoose": "^4.9.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "validator": "^7.0.0"
+  }
+}
