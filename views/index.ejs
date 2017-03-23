@@ -1,7 +1,22 @@
 <% include _header %>
 
 <div class="container">
-  <h1>DQA Project Management</h1>
+  <table class="table table-hover">
+    <thead>
+      <tr><th>Engineer list</th></tr>
+    </thead>
+    <tbody>
+      <% users.forEach(user => { -%>
+        <tr>
+          <td>
+            <a href="/users/<%= user.name %>">
+            <%= user.name %>
+          </a>
+          </td>
+        </tr>
+      <% }) -%>
+    </tbody>
+  </table>
 </div>
 
 <% include _footer %>
