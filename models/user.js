@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+const { isEmail } = require('validator');
 
 const SALT_FACTOR = 10;
 
@@ -16,6 +17,10 @@ const UserSchema = mongoose.Schema({
     minlength: 5,
     unique: true,
     trim: true,
+    validate: {
+      validator: isEmail,
+      message: '{VALUE} is not a valid e-mail',
+    },
   },
   password: {
     type: String,
