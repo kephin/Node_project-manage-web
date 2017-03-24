@@ -1,6 +1,4 @@
 const express = require('express');
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/AccoutApp');
 const path = require('path');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -9,6 +7,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 
 const { config } = require('./config/config');
+const { mongoose } = require('./database/mongoose');
 const routes = require('./routes/index');
 const users = require('./routes/users');
 const setUpPassport = require('./config/set-up-passport');
