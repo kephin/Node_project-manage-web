@@ -35,6 +35,31 @@ app.use(flash());
 app.use('/', routes);
 app.use('/', users);
 
+// catch 404 and forward to error handler
+app.use((req, res, next) => {
+  const err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+// development error handler
+if (process.env.NODE_ENV === 'development') {
+  app.use((err, req, res, next) => {
+    res.status(err.status || 500);
+    res.render('error', {
+      error: err,
+    });
+  });
+}
+
+// production error handler
+app.use((err, req, res, next) => {
+  res.status(err.status || 500);
+  res.render('error', {
+    error: err.message,
+  });
+});
+
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
